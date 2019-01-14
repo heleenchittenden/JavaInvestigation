@@ -13,11 +13,13 @@ public class DistanceTable {
     
     enum CitiesEnum {AMSTERDAM, BERLIN, COPENHAGEN, LONDON, MOSCOW, ROME, WARSAW;}
     
-    HashMap<CitiesEnum, HashMap<CitiesEnum, Integer>> DistanceTable = new HashMap<>();
+    HashMap<CitiesEnum, HashMap<CitiesEnum, Integer>> distanceMap = new HashMap<>();
     
-    public Integer getDistance(CitiesEnum City1, CitiesEnum City2) {
-        return DistanceTable.get(City1).get(City2);
+    private Integer getDistance(CitiesEnum city1, CitiesEnum city2) {
+        return distanceMap.get(city1).get(city2);
     } 
     
-    
+    private void setDistance(CitiesEnum city1, CitiesEnum city2, Integer distance) {
+        distanceMap.put(city1, new HashMap(city2, distance));
+    }
 }
